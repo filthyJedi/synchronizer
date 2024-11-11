@@ -14,12 +14,13 @@ def ensure_dir_exist(folder_path):
 
 # scan specified folder and list all elements it contains
 def scan_folder(folder_path, folder_dictionary):
-    for item in os.scandir(folder_path):
-        is_dir = item.is_dir()
-        file = Element(item.path, os.path.getsize(item.path), is_dir)
-        folder_dictionary[file.path] = file
-        if is_dir:
-            scan_folder(item.path, folder_dictionary)
+    with os.scandir(folder_path) as folder:
+        for item in folder:
+            is_dir = item.is_dir()
+            file = Element(item.path, os.path.getsize(item.path), is_dir)
+            folder_dictionary[file.path] = file
+            if is_dir:
+                scan_folder(item.path, folder_dictionary)
 
 
 # compare two files by their hash

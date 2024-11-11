@@ -6,6 +6,8 @@ from synchronization_logic import *
 
 
 def synchronization_process():
+    source_folder_dict = dict()
+    replica_folder_dict = dict()
     scan_folder(source_folder_path, source_folder_dict)
     scan_folder(replica_folder_path, replica_folder_dict)
     synchronize(source_folder_path, replica_folder_path, source_folder_dict, replica_folder_dict)
@@ -31,9 +33,6 @@ if __name__ == "__main__":
 
     ensure_dir_exist(source_folder_path)
     ensure_dir_exist(replica_folder_path)
-
-    source_folder_dict = dict()
-    replica_folder_dict = dict()
 
 
 synchronization_process()
