@@ -5,10 +5,10 @@ Program that synchronizes two folders: source and replica. The program maintain 
 
 
 Takes four argument:
-* --source - source folder path, should be absolute
-* --replica - replica folder path, should be absolute
+* --source - source folder path
+* --replica - replica folder path
 * --interval  - synchronization interval in seconds
-* --log - log file path, should be absolute
+* --log - log file path
 
 
 Example of command:
